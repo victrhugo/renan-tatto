@@ -1,26 +1,46 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --color-background: #000000;
+  --color-foreground: #E5E5E5;
+  
+  --color-black-deep: #000000;
+  --color-graphite-dark: #0A0A0A;
+  --color-graphite-light: #141414;
+  --color-offwhite: #E5E5E5;
+  
+  --color-gold-light: #F3E5AB;
+  --color-gold-muted: #D4AF37;
+  --color-gold-dark: #8A5A19;
+  --color-gold-deep: #AA771C;
+
+  --font-sans: var(--font-barlow);
+  --font-serif: var(--font-cinzel);
+  --font-oswald: var(--font-oswald);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+:root {
+  background-color: var(--color-background);
+  color: var(--color-foreground);
+}
+
+html {
+  scroll-behavior: smooth;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background-color: var(--color-background);
+  color: var(--color-foreground);
+  font-family: var(--font-sans), sans-serif;
+}
+
+@utility bg-gradient-gold {
+  background-image: linear-gradient(to right, var(--color-gold-deep), var(--color-gold-muted), var(--color-gold-light), var(--color-gold-muted), var(--color-gold-deep));
+}
+
+@utility text-gradient-gold {
+  background-image: linear-gradient(to right, var(--color-gold-deep), var(--color-gold-light), var(--color-gold-deep));
+  -webkit-background-clip: text;
+  color: transparent;
+  background-clip: text;
 }

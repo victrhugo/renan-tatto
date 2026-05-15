@@ -1,0 +1,104 @@
+"use client";
+
+import { useState, useEffect } from "react";
+import { motion } from "framer-motion";
+import { doc, getDoc } from "firebase/firestore";
+import { db } from "@/lib/firebase";
+
+export default function About() {
+  const [data, setData] = useState({
+    title: "O Artista",
+    subtitle: "Renan Tattoo — São José dos Campos",
+    paragraph1: "Com mais de uma década de experiência, desenvolvi um estilo único que mescla a agressividade do underground com a precisão do design premium.",
+    paragraph2: "Minha abordagem não é apenas sobre desenhar na pele, mas criar uma obra de arte exclusiva que reflita força, história e sofisticação. Cada projeto é concebido de forma única para cada cliente, garantindo um resultado que impressiona e dura para a vida toda.",
+    paragraph3: "Trabalho em um ambiente privado e exclusivo, desenhado para oferecer a melhor experiência possível. Do café premium à curadoria musical, tudo é pensado para o seu conforto.",
+    experienceYears: "10+",
+    projectCount: "1k+",
+    imageUrl: "https://images.unsplash.com/photo-1611558709798-e009c8fd7706?q=80&w=2576&auto=format&fit=crop",
+  });
+
+  useEffect(() => {
+    async function loadData() {
+      try {
+        const docRef = doc(db, "content", "about");
+        const docSnap = await getDoc(docRef);
+        if (docSnap.exists()) {
+          const fetchedData = docSnap.data();
+          if (fetchedData.title) setData((prev) => ({ ...prev, ...fetchedData }));
+        }
+      } catch (error) {
+        console.error("Error fetching about:", error);
+      }
+    }
+    loadData();
+  }, []);
+
+  return (
+    <section id="about" className="py-24 md:py-36 bg-black-deep relative overflow-hidden">
+      {/* Decorative background element */}
+      <div className="absolute top-0 right-0 w-[800px] h-[800px] bg-[radial-gradient(circle_at_center,rgba(138,90,25,0.05)_0%,transparent_70%)] pointer-events-none" />
+
+      <div className="max-w-7xl mx-auto px-6 md:px-12 relative z-10">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-20 items-center">
+          
+          <motion.div
+            initial={{ opacity: 0, x: -50 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            transition={{ duration: 1 }}
+            viewport={{ once: true, margin: "-100px" }}
+            className="relative"
+          >
+            <div className="aspect-[3/4] relative z-10 overflow-hidden shadow-[0_0_50px_rgba(0,0,0,0.8)] border border-graphite-light bg-graphite-dark">
+              {data.imageUrl && (
+                <img
+                  src={data.imageUrl}
+                  alt={data.title}
+                  className="w-full h-full object-cover grayscale contrast-125 hover:scale-105 transition-transform duration-1000"
+                />
+              )}
+              <div className="absolute inset-0 bg-gradient-to-t from-black-deep/80 via-transparent to-transparent" />
+            </div>
+            {/* Cinematic Decorative frame */}
+            <div className="absolute -bottom-8 -right-8 w-full h-full border-b-2 border-r-2 border-gold-dark/40 z-0" />
+            <div className="absolute -top-8 -left-8 w-1/2 h-1/2 border-t-2 border-l-2 border-gold-dark/20 z-0" />
+          </motion.div>
+
+          <motion.div
+            initial={{ opacity: 0, x: 50 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            transition={{ duration: 1, delay: 0.2 }}
+            viewport={{ once: true, margin: "-100px" }}
+          >
+            <h2 className="font-serif text-5xl md:text-6xl text-offwhite mb-6 uppercase tracking-wider">
+              {data.title.split(" ").map((word, i, arr) => 
+                i === arr.length - 1 ? <span key={i} className="text-gradient-gold">{word}</span> : `${word} `
+              )}
+            </h2>
+            <h3 className="text-lg font-[family-name:var(--font-oswald)] text-gold-muted/80 mb-10 tracking-[0.3em] uppercase">
+              {data.subtitle}
+            </h3>
+            
+            <div className="space-y-6 text-offwhite/70 font-light leading-relaxed text-lg">
+              {data.paragraph1 && <p>{data.paragraph1}</p>}
+              {data.paragraph2 && <p>{data.paragraph2}</p>}
+              {data.paragraph3 && <p>{data.paragraph3}</p>}
+            </div>
+
+            <div className="mt-16 flex items-center gap-12">
+              <div className="text-center">
+                <span className="block font-[family-name:var(--font-oswald)] text-5xl text-gold-light mb-2 drop-shadow-[0_0_10px_rgba(212,175,55,0.4)]">{data.experienceYears}</span>
+                <span className="text-xs font-[family-name:var(--font-oswald)] uppercase tracking-[0.2em] text-offwhite/50">Anos de Exp.</span>
+              </div>
+              <div className="w-[1px] h-16 bg-gradient-to-b from-transparent via-gold-dark/50 to-transparent" />
+              <div className="text-center">
+                <span className="block font-[family-name:var(--font-oswald)] text-5xl text-gold-light mb-2 drop-shadow-[0_0_10px_rgba(212,175,55,0.4)]">{data.projectCount}</span>
+                <span className="text-xs font-[family-name:var(--font-oswald)] uppercase tracking-[0.2em] text-offwhite/50">Projetos</span>
+              </div>
+            </div>
+          </motion.div>
+
+        </div>
+      </div>
+    </section>
+  );
+}

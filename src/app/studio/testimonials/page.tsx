@@ -24,9 +24,18 @@ export default function TestimonialsEditPage() {
     async function loadData() {
       try {
         const querySnapshot = await getDocs(collection(db, "testimonials"));
-        const loadedItems = querySnapshot.docs.map(doc => ({ id: doc.id, ...doc.data() } as TestimonialItem));
-        loadedItems.sort((a, b) => a.order - b.order);
-        setItems(loadedItems);
+        if (querySnapshot.empty) {
+          const defaultTestimonials = [
+            { id: "1", text: "A experiência é completamente diferente de qualquer outro estúdio. O ambiente, a atenção aos detalhes no design, o resultado final... superou todas as minhas expectativas. É arte pura.", author: "Thiago M.", role: "Colecionador", order: 0 },
+            { id: "2", text: "O nível de realismo que o Renan conseguiu no meu fechamento de braço é absurdo. Sofisticação e força na medida certa. O estúdio em São José é um refúgio.", author: "Rafael S.", role: "Cliente VIP", order: 1 },
+            { id: "3", text: "Entendi o que é o 'luxo underground' no momento em que pisei no estúdio. Serviço impecável e uma arte sombria, elegante e exclusiva que levo pra vida toda.", author: "Leonardo C.", role: "Empresário", order: 2 }
+          ];
+          setItems(defaultTestimonials);
+        } else {
+          const loadedItems = querySnapshot.docs.map(doc => ({ id: doc.id, ...doc.data() } as TestimonialItem));
+          loadedItems.sort((a, b) => a.order - b.order);
+          setItems(loadedItems);
+        }
       } catch (error) {
         console.error("Error fetching testimonials:", error);
       } finally {

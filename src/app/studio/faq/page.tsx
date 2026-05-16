@@ -23,9 +23,19 @@ export default function FAQEditPage() {
     async function loadData() {
       try {
         const querySnapshot = await getDocs(collection(db, "faqs"));
-        const loadedItems = querySnapshot.docs.map(doc => ({ id: doc.id, ...doc.data() } as FAQItem));
-        loadedItems.sort((a, b) => a.order - b.order);
-        setItems(loadedItems);
+        if (querySnapshot.empty) {
+          const defaultFaqs = [
+            { id: "1", question: "Como funciona o processo de criação de arte?", answer: "Todos os nossos projetos são exclusivos. Após o contato inicial, agendamos uma conversa para entender sua visão. Com base nas referências, o artista desenvolve o design único que será apresentado no dia da sessão ou em uma consulta prévia.", order: 0 },
+            { id: "2", question: "Qual o valor mínimo para uma sessão?", answer: "Trabalhamos com um padrão de excelência e exclusividade. Nossos valores variam de acordo com o tamanho e complexidade do projeto, sendo o valor inicial repassado durante o primeiro contato via WhatsApp, após a avaliação da sua ideia.", order: 1 },
+            { id: "3", question: "Vocês fazem cobertura (Cover-up)?", answer: "Sim, realizamos coberturas dependendo da viabilidade da tatuagem antiga e da sua nova ideia. É necessária uma avaliação criteriosa presencial para garantirmos um resultado final de alto padrão.", order: 2 },
+            { id: "4", question: "Onde o estúdio está localizado?", answer: "Nosso estúdio está localizado em um espaço privado e exclusivo na região central de São José dos Campos. O endereço exato é enviado aos clientes mediante a confirmação do agendamento, para manter a privacidade e conforto de todos.", order: 3 }
+          ];
+          setItems(defaultFaqs);
+        } else {
+          const loadedItems = querySnapshot.docs.map(doc => ({ id: doc.id, ...doc.data() } as FAQItem));
+          loadedItems.sort((a, b) => a.order - b.order);
+          setItems(loadedItems);
+        }
       } catch (error) {
         console.error("Error fetching faqs:", error);
       } finally {

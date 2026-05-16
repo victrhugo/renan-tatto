@@ -24,9 +24,21 @@ export default function PortfolioEditPage() {
     async function loadData() {
       try {
         const querySnapshot = await getDocs(collection(db, "portfolio"));
-        const loadedItems = querySnapshot.docs.map(doc => ({ id: doc.id, ...doc.data() } as PortfolioItem));
-        loadedItems.sort((a, b) => a.order - b.order);
-        setItems(loadedItems);
+        if (querySnapshot.empty) {
+          const defaultPortfolio = [
+            { id: "1", imgUrl: "https://images.unsplash.com/photo-1598371839696-5c5bb00bdc28?q=80&w=1000&auto=format&fit=crop", category: "Realismo", order: 0 },
+            { id: "2", imgUrl: "https://images.unsplash.com/photo-1560934898-10332f14debc?q=80&w=1000&auto=format&fit=crop", category: "Blackwork", order: 1 },
+            { id: "3", imgUrl: "https://images.unsplash.com/photo-1620021626781-80f0c05df7dd?q=80&w=1000&auto=format&fit=crop", category: "Dark Art", order: 2 },
+            { id: "4", imgUrl: "https://images.unsplash.com/photo-1589146199347-1f48ed201e74?q=80&w=1000&auto=format&fit=crop", category: "Micro Realismo", order: 3 },
+            { id: "5", imgUrl: "https://images.unsplash.com/photo-1550684376-efcbd6e3f031?q=80&w=1000&auto=format&fit=crop", category: "Lettering", order: 4 },
+            { id: "6", imgUrl: "https://images.unsplash.com/photo-1550537687-c91072c4792d?q=80&w=1000&auto=format&fit=crop", category: "Oriental", order: 5 },
+          ];
+          setItems(defaultPortfolio);
+        } else {
+          const loadedItems = querySnapshot.docs.map(doc => ({ id: doc.id, ...doc.data() } as PortfolioItem));
+          loadedItems.sort((a, b) => a.order - b.order);
+          setItems(loadedItems);
+        }
       } catch (error) {
         console.error("Error fetching portfolio:", error);
       } finally {

@@ -10,9 +10,9 @@ export default function SEOEditPage() {
   const [isLoading, setIsLoading] = useState(true);
   const [isSaving, setIsSaving] = useState(false);
   const [data, setData] = useState({
-    title: "",
-    description: "",
-    keywords: "",
+    title: "Renan Tattoo | Estúdio Premium",
+    description: "Estúdio de tatuagem de luxo e estética underground.",
+    keywords: "tattoo, tatuagem",
   });
 
   useEffect(() => {

@@ -11,11 +11,11 @@ export default function HeroEditPage() {
   const [isLoading, setIsLoading] = useState(true);
   const [isSaving, setIsSaving] = useState(false);
   const [data, setData] = useState({
-    title: "",
-    subtitle: "",
-    description: "",
+    title: "ARTE NA PELE. <br /> <span class='text-gradient-gold'>FORÇA E HONRA.</span>",
+    subtitle: "São José dos Campos",
+    description: "Experiência de tatuagem de luxo para quem busca a essência pura do underground, aliada à precisão de uma arte monumental e duradoura.",
     ctaText: "",
-    bgImage: "",
+    bgImage: "https://images.unsplash.com/photo-1598371839696-5c5bb00bdc28?q=80&w=2671&auto=format&fit=crop",
   });
 
   useEffect(() => {

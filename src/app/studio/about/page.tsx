@@ -13,12 +13,12 @@ export default function AboutEditPage() {
   const [data, setData] = useState({
     title: "O Artista",
     subtitle: "Renan Tattoo — São José dos Campos",
-    paragraph1: "",
-    paragraph2: "",
-    paragraph3: "",
+    paragraph1: "Com mais de uma década de experiência, desenvolvi um estilo único que mescla a agressividade do underground com a precisão do design premium.",
+    paragraph2: "Minha abordagem não é apenas sobre desenhar na pele, mas criar uma obra de arte exclusiva que reflita força, história e sofisticação. Cada projeto é concebido de forma única para cada cliente, garantindo um resultado que impressiona e dura para a vida toda.",
+    paragraph3: "Trabalho em um ambiente privado e exclusivo, desenhado para oferecer a melhor experiência possível. Do café premium à curadoria musical, tudo é pensado para o seu conforto.",
     experienceYears: "10+",
     projectCount: "1k+",
-    imageUrl: "",
+    imageUrl: "https://images.unsplash.com/photo-1611558709798-e009c8fd7706?q=80&w=2576&auto=format&fit=crop",
   });
 
   useEffect(() => {

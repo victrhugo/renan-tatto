@@ -51,23 +51,23 @@ export default function FAQ() {
   }, []);
 
   return (
-    <section id="faq" className="py-24 md:py-36 bg-black-deep relative">
+    <section id="faq" className="py-12 sm:py-16 md:py-24 lg:py-36 bg-black-deep relative">
       <div className="absolute inset-0 bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-10 pointer-events-none" />
       
-      <div className="max-w-4xl mx-auto px-6 md:px-12 relative z-10">
-        <div className="text-center mb-20">
+      <div className="max-w-4xl mx-auto px-4 sm:px-6 md:px-12 relative z-10">
+        <div className="text-center mb-10 sm:mb-14 md:mb-20">
           <motion.h2
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
             viewport={{ once: true }}
-            className="font-serif text-5xl md:text-6xl text-offwhite mb-4 uppercase tracking-wider"
+            className="font-serif text-[clamp(2rem,7vw,4rem)] text-offwhite mb-3 md:mb-6 uppercase tracking-wider"
           >
             Dúvidas <span className="text-gradient-gold">Frequentes</span>
           </motion.h2>
         </div>
 
-        <div className="space-y-2">
+        <div className="space-y-0 sm:space-y-0">
           {faqs.map((faq, index) => (
             <motion.div
               key={faq.id}
@@ -79,19 +79,19 @@ export default function FAQ() {
             >
               <button
                 onClick={() => setOpenIndex(openIndex === index ? null : index)}
-                className="w-full py-8 flex justify-between items-center text-left focus:outline-none"
+                className="w-full py-4 sm:py-5 md:py-6 lg:py-8 flex justify-between items-start md:items-center text-left focus:outline-none active:bg-graphite-light/10 transition-colors"
               >
                 <span className={cn(
-                  "font-[family-name:var(--font-oswald)] uppercase tracking-[0.1em] text-xl transition-colors duration-500",
+                  "font-[family-name:var(--font-oswald)] uppercase tracking-[0.1em] text-sm sm:text-base md:text-lg lg:text-xl transition-colors duration-500 pr-3 sm:pr-4 md:pr-6 flex-1",
                   openIndex === index ? "text-gold-light" : "text-offwhite group-hover:text-gold-muted/80"
                 )}>
                   {faq.question}
                 </span>
-                <span className="text-offwhite ml-6 flex-shrink-0">
+                <span className="text-offwhite ml-4 md:ml-6 flex-shrink-0 mt-1 md:mt-0">
                   {openIndex === index ? (
-                    <Minus size={24} className="text-gold-light" />
+                    <Minus size={20} className="text-gold-light md:w-6 md:h-6 min-w-[20px] md:min-w-[24px]" />
                   ) : (
-                    <Plus size={24} className="text-gold-dark/60 group-hover:text-gold-muted/80 transition-colors duration-500" />
+                    <Plus size={20} className="text-gold-dark/60 group-hover:text-gold-muted/80 transition-colors duration-500 md:w-6 md:h-6 min-w-[20px] md:min-w-[24px]" />
                   )}
                 </span>
               </button>
@@ -105,7 +105,7 @@ export default function FAQ() {
                     transition={{ duration: 0.4, ease: "easeInOut" }}
                     className="overflow-hidden"
                   >
-                    <p className="pb-8 text-offwhite/50 font-light leading-relaxed pr-8 text-lg">
+                    <p className="pb-4 sm:pb-5 md:pb-6 lg:pb-8 text-offwhite/50 font-light leading-relaxed pr-4 sm:pr-6 md:pr-8 text-[clamp(0.85rem,2.5vw,1.125rem)]">
                       {faq.answer}
                     </p>
                   </motion.div>

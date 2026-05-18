@@ -33,9 +33,9 @@ export default function RootLayout({
   return (
     <html
       lang="pt-BR"
-      className={`${cinzel.variable} ${oswald.variable} ${barlow.variable} h-full antialiased`}
+      className={`${cinzel.variable} ${oswald.variable} ${barlow.variable} h-full antialiased scroll-smooth`}
     >
-      <body className="min-h-full flex flex-col relative">
+      <body className="min-h-full flex flex-col relative bg-black-deep overflow-x-hidden">
         <div className="fixed inset-0 pointer-events-none z-[-1] opacity-30 bg-[url('https://grainy-gradients.vercel.app/noise.svg')]" />
         {children}
       </body>

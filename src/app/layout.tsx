@@ -24,7 +24,7 @@ export const metadata: Metadata = {
   title: "Renan Tattoo | Estúdio Premium em São José dos Campos",
   description: "Experiência de tatuagem exclusiva. Arte na pele, luxo underground e estética dark premium por Renan Tattoo.",
   icons: {
-    icon: "/logo.png",
+    icon: [{ url: "/logo.png", type: "image/png" }],
     shortcut: "/logo.png",
     apple: "/logo.png",
   },

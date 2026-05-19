@@ -6,9 +6,9 @@ export default function Head() {
         name="description"
         content="Experiência de tatuagem exclusiva. Arte na pele, luxo underground e estética dark premium por Renan Tattoo."
       />
-      <link rel="icon" href="/logo.png" type="image/png" />
-      <link rel="shortcut icon" href="/logo.png" type="image/png" />
-      <link rel="apple-touch-icon" href="/logo.png" />
+      <link rel="icon" href="/logo.png?v=2" type="image/png" />
+      <link rel="shortcut icon" href="/logo.png?v=2" type="image/png" />
+      <link rel="apple-touch-icon" href="/logo.png?v=2" />
     </>
   );
 }

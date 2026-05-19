@@ -7,8 +7,8 @@ import { db } from "@/lib/firebase";
 
 export default function Footer() {
   const [data, setData] = useState({
-    whatsapp: "5512999999999",
-    instagram: "https://instagram.com/renantattoo",
+    whatsapp: "5512981496972",
+    instagram: "https://instagram.com/renantattoo012",
     address: "São José dos Campos, SP",
     email: "",
   });

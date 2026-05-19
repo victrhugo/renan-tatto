@@ -64,7 +64,7 @@ export default function Navbar() {
             </a>
           ))}
           <a
-            href="https://wa.me/5512999999999"
+            href="https://wa.me/5512981496972"
             target="_blank"
             rel="noopener noreferrer"
             className="px-6 lg:px-8 py-2.5 border border-gold-dark/50 text-gold-light hover:border-gold-muted transition-all duration-300 uppercase tracking-[0.2em] text-sm font-[family-name:var(--font-oswald)] relative overflow-hidden group shadow-[0_0_15px_rgba(138,90,25,0.1)] hover:shadow-[0_0_20px_rgba(212,175,55,0.3)] hover:text-black-deep"
@@ -109,7 +109,7 @@ export default function Navbar() {
           ))}
           <div className="h-[1px] w-20 bg-gradient-to-r from-transparent via-gold-dark/40 to-transparent my-4" />
           <a
-            href="https://wa.me/5512999999999"
+            href="https://wa.me/5512981496972"
             target="_blank"
             rel="noopener noreferrer"
             onClick={() => setIsMobileMenuOpen(false)}

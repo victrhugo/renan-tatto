@@ -83,7 +83,7 @@ export default function BookingProcess() {
           className="mt-10 sm:mt-14 md:mt-24 flex justify-center w-full px-4 sm:px-0"
         >
           <a
-            href="https://wa.me/5512999999999"
+            href="https://wa.me/5512981496972"
             target="_blank"
             rel="noopener noreferrer"
             className="group relative w-full sm:w-auto px-6 sm:px-8 md:px-12 py-4 sm:py-4 md:py-6 bg-gradient-gold text-black-deep uppercase tracking-[0.2em] md:tracking-[0.3em] text-sm md:text-base font-[family-name:var(--font-oswald)] font-bold overflow-hidden shadow-[0_0_30px_rgba(212,175,55,0.2)] hover:shadow-[0_0_50px_rgba(212,175,55,0.5)] transition-all duration-500 text-center active:shadow-[0_0_60px_rgba(212,175,55,0.6)] min-h-[44px] md:min-h-auto flex items-center justify-center max-w-xs mx-auto"

@@ -85,7 +85,7 @@ export default function Hero() {
             Ver Portfólio
           </a>
           <a
-            href="https://wa.me/5512999999999"
+            href="https://wa.me/5512981496972"
             target="_blank"
             rel="noopener noreferrer"
             className="px-6 sm:px-8 md:px-10 py-3 sm:py-3.5 md:py-4 border border-gold-dark/40 text-gold-light uppercase tracking-[0.2em] text-[clamp(0.8rem,2.5vw,0.875rem)] font-[family-name:var(--font-oswald)] font-medium hover:bg-gold-dark/10 hover:border-gold-muted transition-all duration-500 backdrop-blur-sm text-center active:bg-gold-dark/20 min-h-[44px] md:min-h-auto flex items-center justify-center"

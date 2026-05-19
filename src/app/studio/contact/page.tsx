@@ -10,8 +10,8 @@ export default function ContactEditPage() {
   const [isLoading, setIsLoading] = useState(true);
   const [isSaving, setIsSaving] = useState(false);
   const [data, setData] = useState({
-    whatsapp: "5512999999999",
-    instagram: "https://instagram.com/renantattoo",
+    whatsapp: "5512981496972",
+    instagram: "https://instagram.com/renantattoo012",
     address: "São José dos Campos, SP",
     email: "",
   });

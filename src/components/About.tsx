@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
-import { doc, getDoc } from "firebase/firestore";
+import { doc, onSnapshot } from "firebase/firestore";
 import { db } from "@/lib/firebase";
 
 export default function About() {
@@ -18,19 +18,21 @@ export default function About() {
   });
 
   useEffect(() => {
-    async function loadData() {
-      try {
-        const docRef = doc(db, "content", "about");
-        const docSnap = await getDoc(docRef);
+    const docRef = doc(db, "content", "about");
+    const unsubscribe = onSnapshot(
+      docRef,
+      (docSnap) => {
         if (docSnap.exists()) {
           const fetchedData = docSnap.data();
-          if (fetchedData.title) setData((prev) => ({ ...prev, ...fetchedData }));
+          setData((prev) => ({ ...prev, ...fetchedData }));
         }
-      } catch (error) {
-        console.error("Error fetching about:", error);
+      },
+      (error) => {
+        console.error("Error listening about:", error);
       }
-    }
-    loadData();
+    );
+
+    return unsubscribe;
   }, []);
 
   return (

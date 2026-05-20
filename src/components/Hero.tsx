@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
-import { doc, getDoc } from "firebase/firestore";
+import { doc, onSnapshot } from "firebase/firestore";
 import { db } from "@/lib/firebase";
 
 export default function Hero() {
@@ -14,19 +14,21 @@ export default function Hero() {
   });
 
   useEffect(() => {
-    async function loadData() {
-      try {
-        const docRef = doc(db, "content", "hero");
-        const docSnap = await getDoc(docRef);
+    const docRef = doc(db, "content", "hero");
+    const unsubscribe = onSnapshot(
+      docRef,
+      (docSnap) => {
         if (docSnap.exists()) {
           const fetchedData = docSnap.data();
-          if (fetchedData.title) setData((prev) => ({ ...prev, ...fetchedData }));
+          setData((prev) => ({ ...prev, ...fetchedData }));
         }
-      } catch (error) {
-        console.error("Error fetching hero:", error);
+      },
+      (error) => {
+        console.error("Error listening hero:", error);
       }
-    }
-    loadData();
+    );
+
+    return unsubscribe;
   }, []);
 
   return (

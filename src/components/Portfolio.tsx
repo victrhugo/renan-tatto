@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
-import { collection, getDocs, query, orderBy } from "firebase/firestore";
+import { collection, query, orderBy, onSnapshot } from "firebase/firestore";
 import { db } from "@/lib/firebase";
 
 const defaultPortfolio = [
@@ -18,19 +18,23 @@ export default function Portfolio() {
   const [items, setItems] = useState<any[]>(defaultPortfolio);
 
   useEffect(() => {
-    async function loadData() {
-      try {
-        const q = query(collection(db, "portfolio"), orderBy("order", "asc"));
-        const querySnapshot = await getDocs(q);
-        if (!querySnapshot.empty) {
-          const fetchedItems = querySnapshot.docs.map(doc => ({ id: doc.id, ...doc.data() }));
+    const q = query(collection(db, "portfolio"), orderBy("order", "asc"));
+    const unsubscribe = onSnapshot(
+      q,
+      (snapshot) => {
+        if (!snapshot.empty) {
+          const fetchedItems = snapshot.docs.map((doc) => ({ id: doc.id, ...doc.data() }));
           setItems(fetchedItems);
+        } else {
+          setItems([]);
         }
-      } catch (error) {
-        console.error("Error fetching portfolio:", error);
+      },
+      (error) => {
+        console.error("Error listening portfolio:", error);
       }
-    }
-    loadData();
+    );
+
+    return unsubscribe;
   }, []);
 
   return (
@@ -56,7 +60,7 @@ export default function Portfolio() {
           </motion.div>
           
           <motion.a
-            href="https://instagram.com/renantattoo"
+            href="https://instagram.com/renantattoo012"
             target="_blank"
             rel="noopener noreferrer"
             initial={{ opacity: 0 }}

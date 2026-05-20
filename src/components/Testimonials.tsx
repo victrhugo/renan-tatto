@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
-import { collection, getDocs, query, orderBy } from "firebase/firestore";
+import { collection, query, orderBy, onSnapshot } from "firebase/firestore";
 import { db } from "@/lib/firebase";
 
 const defaultTestimonials = [
@@ -30,19 +30,23 @@ export default function Testimonials() {
   const [items, setItems] = useState<any[]>(defaultTestimonials);
 
   useEffect(() => {
-    async function loadData() {
-      try {
-        const q = query(collection(db, "testimonials"), orderBy("order", "asc"));
-        const querySnapshot = await getDocs(q);
-        if (!querySnapshot.empty) {
-          const fetchedItems = querySnapshot.docs.map(doc => ({ id: doc.id, ...doc.data() }));
+    const q = query(collection(db, "testimonials"), orderBy("order", "asc"));
+    const unsubscribe = onSnapshot(
+      q,
+      (snapshot) => {
+        if (!snapshot.empty) {
+          const fetchedItems = snapshot.docs.map((doc) => ({ id: doc.id, ...doc.data() }));
           setItems(fetchedItems);
+        } else {
+          setItems([]);
         }
-      } catch (error) {
-        console.error("Error fetching testimonials:", error);
+      },
+      (error) => {
+        console.error("Error listening testimonials:", error);
       }
-    }
-    loadData();
+    );
+
+    return unsubscribe;
   }, []);
 
   return (

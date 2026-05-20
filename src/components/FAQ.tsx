@@ -3,7 +3,7 @@
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Plus, Minus } from "lucide-react";
-import { collection, getDocs, query, orderBy } from "firebase/firestore";
+import { collection, query, orderBy, onSnapshot } from "firebase/firestore";
 import { db } from "@/lib/firebase";
 import { cn } from "@/lib/utils";
 
@@ -35,19 +35,23 @@ export default function FAQ() {
   const [faqs, setFaqs] = useState<any[]>(defaultFaqs);
 
   useEffect(() => {
-    async function loadData() {
-      try {
-        const q = query(collection(db, "faqs"), orderBy("order", "asc"));
-        const querySnapshot = await getDocs(q);
-        if (!querySnapshot.empty) {
-          const fetchedItems = querySnapshot.docs.map(doc => ({ id: doc.id, ...doc.data() }));
+    const q = query(collection(db, "faqs"), orderBy("order", "asc"));
+    const unsubscribe = onSnapshot(
+      q,
+      (snapshot) => {
+        if (!snapshot.empty) {
+          const fetchedItems = snapshot.docs.map((doc) => ({ id: doc.id, ...doc.data() }));
           setFaqs(fetchedItems);
+        } else {
+          setFaqs([]);
         }
-      } catch (error) {
-        console.error("Error fetching faqs:", error);
+      },
+      (error) => {
+        console.error("Error listening faqs:", error);
       }
-    }
-    loadData();
+    );
+
+    return unsubscribe;
   }, []);
 
   return (

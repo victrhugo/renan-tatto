@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from "react";
 import Image from "next/image";
-import { doc, getDoc } from "firebase/firestore";
+import { doc, onSnapshot } from "firebase/firestore";
 import { db } from "@/lib/firebase";
 
 export default function Footer() {
@@ -14,19 +14,21 @@ export default function Footer() {
   });
 
   useEffect(() => {
-    async function loadData() {
-      try {
-        const docRef = doc(db, "content", "contact");
-        const docSnap = await getDoc(docRef);
+    const docRef = doc(db, "content", "contact");
+    const unsubscribe = onSnapshot(
+      docRef,
+      (docSnap) => {
         if (docSnap.exists()) {
           const fetchedData = docSnap.data();
-          if (fetchedData.whatsapp) setData((prev) => ({ ...prev, ...fetchedData }));
+          setData((prev) => ({ ...prev, ...fetchedData }));
         }
-      } catch (error) {
-        console.error("Error fetching contact:", error);
+      },
+      (error) => {
+        console.error("Error listening contact:", error);
       }
-    }
-    loadData();
+    );
+
+    return unsubscribe;
   }, []);
 
   return (

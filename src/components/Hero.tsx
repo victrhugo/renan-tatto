@@ -41,7 +41,7 @@ export default function Hero() {
           <img
             src={data.bgImage}
             alt="Tattoo Studio Background"
-            className="w-full h-full object-cover grayscale opacity-40 mix-blend-luminosity scale-105"
+            className="w-full h-full object-cover saturate-125 contrast-110 opacity-60 scale-105"
           />
         )}
       </div>
@@ -52,7 +52,7 @@ export default function Hero() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.2 }}
-          className="font-[family-name:var(--font-oswald)] text-gold-light uppercase tracking-[0.3em] text-[clamp(0.65rem,2.5vw,0.875rem)] mb-4 sm:mb-6 drop-shadow-[0_0_10px_rgba(212,175,55,0.3)]"
+          className="font-[family-name:var(--font-oswald)] text-gold-light uppercase tracking-[0.3em] text-[clamp(0.65rem,2.5vw,0.875rem)] mb-4 sm:mb-6 drop-shadow-[0_0_10px_rgba(232,185,35,0.3)]"
         >
           {data.subtitle}
         </motion.p>
@@ -82,7 +82,7 @@ export default function Hero() {
         >
           <a
             href="#portfolio"
-            className="px-6 sm:px-8 md:px-10 py-3 sm:py-3.5 md:py-4 bg-gradient-gold text-black-deep uppercase tracking-[0.2em] text-[clamp(0.8rem,2.5vw,0.875rem)] font-[family-name:var(--font-oswald)] font-medium hover:shadow-[0_0_30px_rgba(212,175,55,0.4)] transition-all duration-500 text-center active:shadow-[0_0_40px_rgba(212,175,55,0.6)] min-h-[44px] md:min-h-auto flex items-center justify-center"
+            className="px-6 sm:px-8 md:px-10 py-3 sm:py-3.5 md:py-4 bg-gradient-gold text-black-deep uppercase tracking-[0.2em] text-[clamp(0.8rem,2.5vw,0.875rem)] font-[family-name:var(--font-oswald)] font-medium hover:shadow-[0_0_30px_rgba(232,185,35,0.4)] transition-all duration-500 text-center active:shadow-[0_0_40px_rgba(232,185,35,0.6)] min-h-[44px] md:min-h-auto flex items-center justify-center"
           >
             Ver Portfólio
           </a>
@@ -109,7 +109,7 @@ export default function Hero() {
           <motion.div
             animate={{ y: [-48, 48] }}
             transition={{ duration: 2.5, repeat: Infinity, ease: "linear" }}
-            className="w-full h-8 bg-gradient-gold absolute top-0 shadow-[0_0_10px_rgba(212,175,55,0.8)]"
+            className="w-full h-8 bg-gradient-gold absolute top-0 shadow-[0_0_10px_rgba(232,185,35,0.8)]"
           />
         </div>
       </motion.div>

@@ -76,7 +76,7 @@ export default function ContactEditPage() {
               id="instagram"
               value={data.instagram}
               onChange={(e) => setData({ ...data, instagram: e.target.value })}
-              placeholder="https://instagram.com/renantattoo"
+              placeholder="https://instagram.com/renantattoo012"
             />
             
             <AdminInput

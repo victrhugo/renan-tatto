@@ -46,7 +46,7 @@ export default function Navbar() {
             alt="Renan Tattoo Logo"
             width={180}
             height={70}
-            className="object-contain drop-shadow-[0_0_15px_rgba(212,175,55,0.2)] transition-all duration-500 w-[100px] sm:w-[120px] md:w-[160px]"
+            className="object-contain drop-shadow-[0_0_15px_rgba(232,185,35,0.2)] transition-all duration-500 w-[100px] sm:w-[120px] md:w-[160px]"
             priority
           />
         </a>
@@ -67,7 +67,7 @@ export default function Navbar() {
             href="https://wa.me/5512981496972"
             target="_blank"
             rel="noopener noreferrer"
-            className="px-6 lg:px-8 py-2.5 border border-gold-dark/50 text-gold-light hover:border-gold-muted transition-all duration-300 uppercase tracking-[0.2em] text-sm font-[family-name:var(--font-oswald)] relative overflow-hidden group shadow-[0_0_15px_rgba(138,90,25,0.1)] hover:shadow-[0_0_20px_rgba(212,175,55,0.3)] hover:text-black-deep"
+            className="px-6 lg:px-8 py-2.5 border border-gold-dark/50 text-gold-light hover:border-gold-muted transition-all duration-300 uppercase tracking-[0.2em] text-sm font-[family-name:var(--font-oswald)] relative overflow-hidden group shadow-[0_0_15px_rgba(166,106,18,0.18)] hover:shadow-[0_0_22px_rgba(232,185,35,0.4)] hover:text-black-deep"
           >
             <span className="relative z-10 font-medium">Agendar</span>
             <div className="absolute inset-0 bg-gradient-gold transform -translate-x-full group-hover:translate-x-0 transition-transform duration-500 ease-out" />
@@ -113,7 +113,7 @@ export default function Navbar() {
             target="_blank"
             rel="noopener noreferrer"
             onClick={() => setIsMobileMenuOpen(false)}
-            className="px-8 py-3 sm:py-4 bg-gradient-gold text-black-deep uppercase tracking-[0.2em] text-sm sm:text-base font-[family-name:var(--font-oswald)] font-medium shadow-[0_0_30px_rgba(212,175,55,0.2)] w-full max-w-xs text-center active:shadow-[0_0_40px_rgba(212,175,55,0.4)] transition-shadow rounded-sm"
+            className="px-8 py-3 sm:py-4 bg-gradient-gold text-black-deep uppercase tracking-[0.2em] text-sm sm:text-base font-[family-name:var(--font-oswald)] font-medium shadow-[0_0_30px_rgba(232,185,35,0.2)] w-full max-w-xs text-center active:shadow-[0_0_40px_rgba(232,185,35,0.4)] transition-shadow rounded-sm"
           >
             Agendar Sessão
           </a>

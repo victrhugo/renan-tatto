@@ -62,7 +62,7 @@ export default function BookingProcess() {
               viewport={{ once: true }}
               className="relative z-10 flex flex-col items-center text-center group"
             >
-              <div className="w-20 h-20 sm:w-24 sm:h-24 md:w-28 md:h-28 bg-black-deep border border-gold-dark/50 flex items-center justify-center mb-4 sm:mb-5 md:mb-8 shadow-[0_0_30px_rgba(138,90,25,0.1)] group-hover:border-gold-light group-hover:shadow-[0_0_40px_rgba(212,175,55,0.3)] transition-all duration-500 transform group-hover:scale-105 active:scale-100">
+              <div className="w-20 h-20 sm:w-24 sm:h-24 md:w-28 md:h-28 bg-black-deep border border-gold-dark/50 flex items-center justify-center mb-4 sm:mb-5 md:mb-8 shadow-[0_0_30px_rgba(166,106,18,0.18)] group-hover:border-gold-light group-hover:shadow-[0_0_45px_rgba(232,185,35,0.4)] transition-all duration-500 transform group-hover:scale-105 active:scale-100">
                 <span className="font-serif text-2xl sm:text-3xl md:text-4xl text-gradient-gold">{step.number}</span>
               </div>
               <h3 className="text-base sm:text-lg md:text-2xl font-[family-name:var(--font-oswald)] text-offwhite mb-2 md:mb-4 tracking-widest uppercase group-hover:text-gold-light transition-colors duration-500">
@@ -86,7 +86,7 @@ export default function BookingProcess() {
             href="https://wa.me/5512981496972"
             target="_blank"
             rel="noopener noreferrer"
-            className="group relative w-full sm:w-auto px-6 sm:px-8 md:px-12 py-4 sm:py-4 md:py-6 bg-gradient-gold text-black-deep uppercase tracking-[0.2em] md:tracking-[0.3em] text-sm md:text-base font-[family-name:var(--font-oswald)] font-bold overflow-hidden shadow-[0_0_30px_rgba(212,175,55,0.2)] hover:shadow-[0_0_50px_rgba(212,175,55,0.5)] transition-all duration-500 text-center active:shadow-[0_0_60px_rgba(212,175,55,0.6)] min-h-[44px] md:min-h-auto flex items-center justify-center max-w-xs mx-auto"
+            className="group relative w-full sm:w-auto px-6 sm:px-8 md:px-12 py-4 sm:py-4 md:py-6 bg-gradient-gold text-black-deep uppercase tracking-[0.2em] md:tracking-[0.3em] text-sm md:text-base font-[family-name:var(--font-oswald)] font-bold overflow-hidden shadow-[0_0_30px_rgba(232,185,35,0.2)] hover:shadow-[0_0_50px_rgba(232,185,35,0.5)] transition-all duration-500 text-center active:shadow-[0_0_60px_rgba(232,185,35,0.6)] min-h-[44px] md:min-h-auto flex items-center justify-center max-w-xs mx-auto"
           >
             <span className="relative z-10">Iniciar Atendimento</span>
             <div className="absolute inset-0 h-full w-full bg-white/20 transform -translate-x-full group-hover:animate-[shimmer_1.5s_infinite]" />

@@ -87,7 +87,7 @@ export default function Portfolio() {
               <img
                 src={item.imgUrl}
                 alt={`Trabalho de tatuagem categoria ${item.category}`}
-                className="w-full h-full object-cover grayscale contrast-125 transition-all duration-1000 group-hover:scale-110 group-hover:grayscale-[20%] will-change-transform"
+                className="w-full h-full object-cover saturate-125 contrast-110 transition-all duration-1000 group-hover:scale-110 group-hover:saturate-150 will-change-transform"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black-deep via-black-deep/60 md:via-black-deep/40 to-transparent opacity-90 transition-opacity duration-500 flex flex-col justify-end p-4 sm:p-5 md:p-6 lg:p-8">
                 <span className="font-[family-name:var(--font-oswald)] text-gold-light uppercase tracking-[0.2em] md:tracking-[0.3em] text-sm md:text-base lg:text-lg font-medium transform translate-y-0 md:translate-y-4 md:group-hover:translate-y-0 transition-transform duration-500">

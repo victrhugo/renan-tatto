@@ -38,7 +38,7 @@ export default function About() {
   return (
     <section id="about" className="py-12 sm:py-16 md:py-24 lg:py-36 bg-black-deep relative overflow-hidden">
       {/* Decorative background element */}
-      <div className="absolute top-0 right-0 w-[400px] sm:w-[600px] md:w-[800px] h-[400px] sm:h-[600px] md:h-[800px] bg-[radial-gradient(circle_at_center,rgba(138,90,25,0.05)_0%,transparent_70%)] pointer-events-none" />
+      <div className="absolute top-0 right-0 w-[400px] sm:w-[600px] md:w-[800px] h-[400px] sm:h-[600px] md:h-[800px] bg-[radial-gradient(circle_at_center,rgba(166,106,18,0.12)_0%,transparent_70%)] pointer-events-none" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-12 relative z-10">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 sm:gap-10 md:gap-16 lg:gap-20 items-center">
@@ -55,7 +55,7 @@ export default function About() {
                 <img
                   src={data.imageUrl}
                   alt={data.title}
-                  className="w-full h-full object-cover grayscale contrast-125 hover:scale-105 transition-transform duration-1000"
+                  className="w-full h-full object-cover saturate-125 contrast-110 hover:scale-105 transition-transform duration-1000"
                 />
               )}
               <div className="absolute inset-0 bg-gradient-to-t from-black-deep/80 via-transparent to-transparent" />
@@ -89,12 +89,12 @@ export default function About() {
 
             <div className="mt-8 sm:mt-10 md:mt-16 flex items-center gap-6 sm:gap-8 md:gap-12 justify-center md:justify-start">
               <div className="text-center">
-                <span className="block font-[family-name:var(--font-oswald)] text-3xl sm:text-4xl md:text-5xl text-gold-light mb-1 md:mb-2 drop-shadow-[0_0_10px_rgba(212,175,55,0.4)]">{data.experienceYears}</span>
+                <span className="block font-[family-name:var(--font-oswald)] text-3xl sm:text-4xl md:text-5xl text-gold-light mb-1 md:mb-2 drop-shadow-[0_0_10px_rgba(232,185,35,0.4)]">{data.experienceYears}</span>
                 <span className="text-[9px] sm:text-[10px] md:text-xs font-[family-name:var(--font-oswald)] uppercase tracking-[0.15em] text-offwhite/50">Anos de Exp.</span>
               </div>
               <div className="w-[1px] h-10 sm:h-12 md:h-16 bg-gradient-to-b from-transparent via-gold-dark/50 to-transparent" />
               <div className="text-center">
-                <span className="block font-[family-name:var(--font-oswald)] text-3xl sm:text-4xl md:text-5xl text-gold-light mb-1 md:mb-2 drop-shadow-[0_0_10px_rgba(212,175,55,0.4)]">{data.projectCount}</span>
+                <span className="block font-[family-name:var(--font-oswald)] text-3xl sm:text-4xl md:text-5xl text-gold-light mb-1 md:mb-2 drop-shadow-[0_0_10px_rgba(232,185,35,0.4)]">{data.projectCount}</span>
                 <span className="text-[9px] sm:text-[10px] md:text-xs font-[family-name:var(--font-oswald)] uppercase tracking-[0.15em] text-offwhite/50">Projetos</span>
               </div>
             </div>

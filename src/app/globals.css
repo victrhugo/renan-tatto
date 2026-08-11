@@ -9,10 +9,10 @@
   --color-graphite-light: #141414;
   --color-offwhite: #E5E5E5;
   
-  --color-gold-light: #F3E5AB;
-  --color-gold-muted: #D4AF37;
-  --color-gold-dark: #8A5A19;
-  --color-gold-deep: #AA771C;
+  --color-gold-light: #FFDD70;
+  --color-gold-muted: #E8B923;
+  --color-gold-dark: #A66A12;
+  --color-gold-deep: #C6870F;
 
   --font-sans: var(--font-barlow);
   --font-serif: var(--font-cinzel);
@@ -70,11 +70,11 @@ html, body, main {
 }
 
 @utility bg-gradient-gold {
-  background-image: linear-gradient(to right, var(--color-gold-deep), var(--color-gold-muted), var(--color-gold-light), var(--color-gold-muted), var(--color-gold-deep));
+  background-image: linear-gradient(to right, var(--color-gold-deep), var(--color-gold-muted), #FFF3D6, var(--color-gold-light), var(--color-gold-muted), var(--color-gold-deep));
 }
 
 @utility text-gradient-gold {
-  background-image: linear-gradient(to right, var(--color-gold-deep), var(--color-gold-light), var(--color-gold-deep));
+  background-image: linear-gradient(to right, var(--color-gold-deep), var(--color-gold-light), #FFF3D6, var(--color-gold-light), var(--color-gold-deep));
   -webkit-background-clip: text;
   color: transparent;
   background-clip: text;

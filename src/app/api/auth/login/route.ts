@@ -3,7 +3,14 @@ import { NextResponse } from "next/server";
 export async function POST(request: Request) {
   try {
     const { password } = await request.json();
-    const adminPassword = process.env.ADMIN_PASSWORD || "renantattoo2024";
+    const adminPassword = process.env.ADMIN_PASSWORD;
+
+    if (!adminPassword) {
+      return NextResponse.json(
+        { success: false, message: "Admin login is not configured" },
+        { status: 500 }
+      );
+    }
 
     if (password === adminPassword) {
       return NextResponse.json({ success: true });

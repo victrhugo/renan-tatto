@@ -22,13 +22,8 @@ export default function StudioLayout({ children }: { children: React.ReactNode }
 
   const handleLogout = () => {
     Cookies.remove("studio_auth");
-    router.push("/studio/login");
+    router.push("/login");
   };
-
-  // If we are on the login page, don't render the sidebar
-  if (pathname === "/studio/login") {
-    return <>{children}</>;
-  }
 
   return (
     <div className="flex h-screen bg-black-deep text-offwhite overflow-hidden font-sans">
